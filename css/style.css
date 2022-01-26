@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E8F1F2;
+}
+
+
+/* Le immagini dentro .item coprono la larghezza del contenitore */
+.item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Contenitore generale */
+.slider {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Immagine visualizzata in grande */
+.show {
+    width: 55vw;
+    height: 25vw;
+    background-color: cadetblue;
+    position: relative;
+}
+
+.show .item {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.show .item.active {
+    display: block;
+}
+
+/* Descrizione foto */
+.label {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 1rem;
+    text-align: right;
+    color: white;
+}
+
+/* Preview degli altri elementi */
+.preview {
+    min-width: 15vw;
+    height: 25vw;
+    background-color: coral;
+    position: relative;
+}
+
+.preview .item{
+    height: 5vw;
+    width: 100%;
+    filter: brightness(0.5);
+    transition: 200ms;
+}
+
+.preview .item.active {
+    border: 4px solid white;
+    filter: brightness(1);
+}
+
+
+/* Pulsanti per scorrere le foto */
+.up,
+.down {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background-color: rgba(200, 200, 200, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.up:hover,
+.down:hover {
+    background-color: rgba(230, 230, 230, 0.8);
+}
+
+.down {
+    bottom: 1rem;
+}
+
+.up {
+    top: 1rem;
+}
