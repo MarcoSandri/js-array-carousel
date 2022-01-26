@@ -61,22 +61,29 @@ forward.addEventListener('click',
     
     function(){
 
-
+        // Va avanti al click
         clicker = clicker + 1;
 
         if(clicker == img.length) {
             clicker = 0;
         }
 
+        // Loop tra le foto, titoli e descrizioni presenti
         if(clicker == 0) {
-            showItems[img.length-1].classList.remove('active')
-            previewItems[img.length-1].classList.remove('active')
+            showItems[img.length-1].classList.remove('active');
+            previewItems[img.length-1].classList.remove('active');
+            showTitle.innerHTML = title[img.length-1];
+            showDesc.innerHTML = description[img.length-1];
         }else {
-            showItems[clicker-1].classList.remove('active')
-            previewItems[clicker-1].classList.remove('active')
+            showItems[clicker-1].classList.remove('active');
+            previewItems[clicker-1].classList.remove('active');
+            showTitle.innerHTML = title[clicker-1];
+            showDesc.innerHTML = description[clicker-1];
         }
         showItems[clicker].classList.add('active');
         previewItems[clicker].classList.add('active');
+        showTitle.innerHTML = title[clicker];
+        showDesc.innerHTML = description[clicker];
         
         // debug
         console.log(clicker);
@@ -87,22 +94,30 @@ backward.addEventListener('click',
     
     function(){
 
+        // Torna indietro al click
         if(clicker == 0) {
             clicker = img.length;
         }
         
         clicker = clicker -1;
         
+        // Loop tra le foto, titoli e descrizioni presenti
         if(clicker == img.length-1) {
             showItems[0].classList.remove('active')
             previewItems[0].classList.remove('active')
+            showTitle.innerHTML = title[0];
+            showDesc.innerHTML = description[0];
         } else {
             showItems[clicker+1].classList.remove('active')
             previewItems[clicker+1].classList.remove('active')
+            showTitle.innerHTML = title[clicker+1];
+            showDesc.innerHTML = description[clicker+1];
         }
 
         showItems[clicker].classList.add('active');
         previewItems[clicker].classList.add('active');
+        showTitle.innerHTML = title[clicker];
+        showDesc.innerHTML = description[clicker];
         // debug
         console.log(clicker);
     }
