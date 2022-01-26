@@ -32,13 +32,18 @@ body {
     position: relative;
 }
 
-.show .item {
+.show-container {
+    width: 100%;
+    height: 100%;
+}
+
+.show-container .item {
     display: none;
     height: 100%;
     width: 100%;
 }
 
-.show .item.active {
+.show-container .item.active {
     display: block;
 }
 
@@ -59,26 +64,33 @@ body {
     position: relative;
 }
 
-.preview .item{
-    height: 5vw;
+.preview-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-container .item {
+    height: 20%;
     width: 100%;
     filter: brightness(0.5);
     transition: 200ms;
 }
 
-.preview .item.active {
+.preview-container .item.active {
     border: 4px solid white;
     filter: brightness(1);
 }
 
 
 /* Pulsanti per scorrere le foto */
-.up,
-.down {
+#up,
+#down {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 9999;
+    z-index: 99999;
     height: 2rem;
     width: 2rem;
     font-size: 1.5rem;
@@ -90,15 +102,15 @@ body {
     cursor: pointer;
 }
 
-.up:hover,
-.down:hover {
+#up:hover,
+#down:hover {
     background-color: rgba(230, 230, 230, 0.8);
 }
 
-.down {
+#down {
     bottom: 1rem;
 }
 
-.up {
+#up {
     top: 1rem;
 }
