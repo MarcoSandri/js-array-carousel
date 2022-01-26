@@ -52,8 +52,10 @@ previewContainer.innerHTML = slides;
 
 
 let clicker = 0;
-let items = document.getElementsByClassName('item');
-items[0].classList.add('active');
+let showItems = document.querySelector('.show-container').getElementsByClassName('item');
+let previewItems = document.querySelector('.preview-container').getElementsByClassName('item');
+showItems[0].classList.add('active');
+previewItems[0].classList.add('active');
 
 forward.addEventListener('click',
     
@@ -67,11 +69,14 @@ forward.addEventListener('click',
         }
 
         if(clicker == 0) {
-            items[img.length-1].classList.remove('active')
+            showItems[img.length-1].classList.remove('active')
+            previewItems[img.length-1].classList.remove('active')
         }else {
-            items[clicker-1].classList.remove('active')
+            showItems[clicker-1].classList.remove('active')
+            previewItems[clicker-1].classList.remove('active')
         }
-        items[clicker].classList.add('active');
+        showItems[clicker].classList.add('active');
+        previewItems[clicker].classList.add('active');
         
         // debug
         console.log(clicker);
@@ -89,12 +94,15 @@ backward.addEventListener('click',
         clicker = clicker -1;
         
         if(clicker == img.length-1) {
-            items[0].classList.remove('active')
+            showItems[0].classList.remove('active')
+            previewItems[0].classList.remove('active')
         } else {
-            items[clicker+1].classList.remove('active')
+            showItems[clicker+1].classList.remove('active')
+            previewItems[clicker+1].classList.remove('active')
         }
 
-        items[clicker].classList.add('active');
+        showItems[clicker].classList.add('active');
+        previewItems[clicker].classList.add('active');
         // debug
         console.log(clicker);
     }
